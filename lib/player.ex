@@ -7,7 +7,7 @@ defmodule ExMon.Player do
     @doc """
     Variaveis de modulos para criar a struct
     """
-    @required_keys  [:life, :name, :move_rnd, :move_avg, :move_heal] 
+    @required_keys  [:life, :name, :moves]
     @life 100
 
     @enforce_keys @required_keys
@@ -18,10 +18,12 @@ defmodule ExMon.Player do
     """
     def build(name, move_rnd, move_avg, move_heal) do
         %ExMon.Player {
-            name: name, 
-            move_rnd: move_rnd, 
-            move_avg: move_avg, 
-            move_heal: move_heal, 
+            name: name,
+            moves: %{
+                move_rnd: move_rnd,
+                move_avg: move_avg,
+                move_heal: move_heal,
+            },
             life: @life
         }
     end
