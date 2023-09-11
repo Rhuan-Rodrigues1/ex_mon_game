@@ -18,13 +18,14 @@ defmodule ExMon do
     |> create_palyer(:soco, :chute, :cura)
     |> Game.start(player)
 
-    Status.print_status_message()
+    Status.print_status_message(Game.info())
   end
 
   def make_move(move) do
     move
     |> Actions.fetch_move()
     |> do_move()
+
   end
 
   defp do_move({:error, move}), do: Status.print_wrong_move_message(move)
@@ -33,7 +34,9 @@ defmodule ExMon do
     case move do
        :move_heal->"realizar_cura"
        move-> Actions.attack(move)
-        
+
     end
+
+    #Status.print_status_message(Game.info())
   end
 end
