@@ -32,11 +32,11 @@ defmodule ExMon do
 
   defp do_move({:ok, move}) do
     case move do
-       :move_heal->"realizar_cura"
+       :move_heal-> Actions.heal()
        move-> Actions.attack(move)
 
     end
 
-    #Status.print_status_message(Game.info())
+    Status.print_status_message(Game.info())
   end
 end

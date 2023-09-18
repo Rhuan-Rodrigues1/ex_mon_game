@@ -25,4 +25,8 @@ defmodule ExMon.Game.Status do
   def print_demage_receive(:computer, :attack, demage) do
     IO.puts "\n======= Player atacou: #{demage} de dano =======\n"
   end
+
+  def print_heal_receive(player, :heal, heal) do
+    IO.puts "\n======= #{player} se curou: #{heal} de dano =======\n"
+  end
 end
