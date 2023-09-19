@@ -33,6 +33,6 @@ defmodule ExMon.Game.Actions.Attack do
         |> Map.put(oponent, player)
         |> Game.update()
 
-        Status.print_demage_receive(oponent, :attack, demage)
+        #Status.print_demage_receive(oponent, :attack, demage)
     end
 end

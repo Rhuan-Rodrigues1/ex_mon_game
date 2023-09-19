@@ -26,6 +26,8 @@ defmodule ExMon do
     |> Actions.fetch_move()
     |> do_move()
 
+    computer_move(Game.info())
+
   end
 
   defp do_move({:error, move}), do: Status.print_wrong_move_message(move)
@@ -39,4 +41,12 @@ defmodule ExMon do
 
     Status.print_status_message(Game.info())
   end
+
+  defp computer_move(%{turn: :computer, status: :continue}) do
+    move = {:ok, Enum.random([:move_avg, :move_rnd, :move_heal])}
+    do_move(move)
+  end
+
+  defp computer_move(_), do: :ok
+
 end
